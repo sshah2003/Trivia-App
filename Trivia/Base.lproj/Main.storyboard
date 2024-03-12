@@ -23,10 +23,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvL-nx-53b">
-                                <rect key="frame" x="16" y="133" width="361" height="312"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvL-nx-53b">
+                                <rect key="frame" x="16" y="133" width="361" height="309"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="309" id="EYL-dr-ZrL"/>
+                                    <constraint firstAttribute="width" constant="361" id="xDA-8O-Gpw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -93,15 +96,19 @@
                         <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
                             <constraint firstItem="4uz-G3-xG6" firstAttribute="centerX" secondItem="ubt-YS-Yx1" secondAttribute="centerX" id="4Mr-1h-dor"/>
+                            <constraint firstItem="kO8-yY-taA" firstAttribute="top" secondItem="WvL-nx-53b" secondAttribute="bottom" constant="21" id="5V4-p8-WF3"/>
                             <constraint firstItem="JXz-bJ-sIa" firstAttribute="centerX" secondItem="ubt-YS-Yx1" secondAttribute="centerX" id="CJT-dQ-qHO"/>
                             <constraint firstItem="kO8-yY-taA" firstAttribute="centerY" secondItem="ubt-YS-Yx1" secondAttribute="centerY" constant="65.5" id="NkC-Q6-ZXy"/>
+                            <constraint firstItem="WvL-nx-53b" firstAttribute="top" secondItem="24A-rF-nTd" secondAttribute="bottom" constant="31" id="QtT-mL-X0g"/>
                             <constraint firstItem="24A-rF-nTd" firstAttribute="centerY" secondItem="ubt-YS-Yx1" secondAttribute="centerY" constant="-334.5" id="XzW-ba-KDo"/>
                             <constraint firstItem="hhR-mp-pX0" firstAttribute="centerX" secondItem="ubt-YS-Yx1" secondAttribute="centerX" id="dUt-p0-l9g"/>
                             <constraint firstItem="hhR-mp-pX0" firstAttribute="centerY" secondItem="ubt-YS-Yx1" secondAttribute="centerY" constant="140.5" id="fKz-Eh-59f"/>
+                            <constraint firstItem="WvL-nx-53b" firstAttribute="centerX" secondItem="ubt-YS-Yx1" secondAttribute="centerX" id="gXB-dw-Pwt"/>
                             <constraint firstItem="4uz-G3-xG6" firstAttribute="centerY" secondItem="ubt-YS-Yx1" secondAttribute="centerY" constant="215.5" id="jAI-CB-WJa"/>
                             <constraint firstItem="kO8-yY-taA" firstAttribute="centerX" secondItem="ubt-YS-Yx1" secondAttribute="centerX" id="pQf-Jq-wa5"/>
                             <constraint firstItem="24A-rF-nTd" firstAttribute="centerX" secondItem="ubt-YS-Yx1" secondAttribute="centerX" id="tVn-wR-7Ln"/>
                             <constraint firstItem="JXz-bJ-sIa" firstAttribute="centerY" secondItem="ubt-YS-Yx1" secondAttribute="centerY" constant="290.5" id="uxU-Ny-9t0"/>
+                            <constraint firstItem="24A-rF-nTd" firstAttribute="top" secondItem="hba-PC-W1h" secondAttribute="top" constant="22" id="xb0-qd-t68"/>
                         </constraints>
                     </view>
                     <connections>
