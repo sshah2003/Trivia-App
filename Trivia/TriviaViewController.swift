@@ -39,7 +39,7 @@ class TriviaViewController: UIViewController {
       }
   }
     
-    
+    //reset game with new questions
     private func resetGame() {
         triviaService.fetchTriviaQuestions { [weak self] questions in
             DispatchQueue.main.async {
@@ -51,6 +51,7 @@ class TriviaViewController: UIViewController {
             }
         }
     }
+    
   
   private func updateQuestion(withQuestionIndex questionIndex: Int) {
     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
@@ -58,21 +59,39 @@ class TriviaViewController: UIViewController {
     questionLabel.text = question.question
     categoryLabel.text = question.category
     let answers = ([question.correctAnswer] + question.incorrectAnswers).shuffled()
-    if answers.count > 0 {
-      answerButton0.setTitle(answers[0], for: .normal)
-    }
-    if answers.count > 1 {
-      answerButton1.setTitle(answers[1], for: .normal)
-      answerButton1.isHidden = false
-    }
-    if answers.count > 2 {
-      answerButton2.setTitle(answers[2], for: .normal)
-      answerButton2.isHidden = false
-    }
-    if answers.count > 3 {
-      answerButton3.setTitle(answers[3], for: .normal)
-      answerButton3.isHidden = false
-    }
+      
+      if answers.contains("True") || answers.contains("False") {
+          
+          if answers.count > 0 {
+            answerButton0.setTitle(answers[0], for: .normal)
+          }
+          if answers.count > 1 {
+            answerButton1.setTitle(answers[1], for: .normal)
+            answerButton1.isHidden = false
+          }
+          
+          answerButton2.isHidden = true
+          answerButton3.isHidden = true
+          
+      }
+      else{
+          if answers.count > 0 {
+            answerButton0.setTitle(answers[0], for: .normal)
+          }
+          if answers.count > 1 {
+            answerButton1.setTitle(answers[1], for: .normal)
+            answerButton1.isHidden = false
+          }
+          if answers.count > 2 {
+            answerButton2.setTitle(answers[2], for: .normal)
+            answerButton2.isHidden = false
+          }
+          if answers.count > 3 {
+            answerButton3.setTitle(answers[3], for: .normal)
+            answerButton3.isHidden = false
+          }
+      }
+    
   }
   
   private func updateToNextQuestion(answer: String) {
@@ -86,6 +105,7 @@ class TriviaViewController: UIViewController {
     }
     updateQuestion(withQuestionIndex: currQuestionIndex)
   }
+    
   
   private func isCorrectAnswer(_ answer: String) -> Bool {
     return answer == questions[currQuestionIndex].correctAnswer
@@ -96,9 +116,7 @@ class TriviaViewController: UIViewController {
                                             message: "Final score: \(numCorrectQuestions)/\(questions.count)",
                                             preferredStyle: .alert)
     let resetAction = UIAlertAction(title: "Restart", style: .default) { [unowned self] _ in
-      currQuestionIndex = 0
-      numCorrectQuestions = 0
-      updateQuestion(withQuestionIndex: currQuestionIndex)
+        self.resetGame()
     }
     alertController.addAction(resetAction)
     present(alertController, animated: true, completion: nil)

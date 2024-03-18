@@ -15,7 +15,7 @@ struct Question: Decodable {
     let incorrect_answers: [String]
 }
 
-// Models to match the API response structure
+//putting the questions into a array to pass into dataTask
 struct TriviaQuestionsResponse: Decodable {
     let results: [Question]
 }
@@ -52,10 +52,10 @@ class TriviaQuestionService {
             }
             
             do {
-                // Parsing the JSON response
+                //parsing for JSON
                 let response = try JSONDecoder().decode(TriviaQuestionsResponse.self, from: data)
                 let questions = response.results.map { result -> TriviaQuestion in
-                    // Mapping each question to your TriviaQuestion model
+                    // putting each item into TriviaQuestion
                     TriviaQuestion(
                         category: result.category,
                         question: result.question,
@@ -64,7 +64,8 @@ class TriviaQuestionService {
                     )
                 }
                 completion(questions)
-            } catch {
+            } 
+            catch {
                 completion(nil)
             }
         }
